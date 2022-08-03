@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Smart pharmacy </string>
+    <string name="user">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="sinup">Sign Up</string>
+    <string name="name">name</string>
+    <string name="conpassword">Confirm password</string>
+    <string name="pass">Password</string>
+
+</resources>
