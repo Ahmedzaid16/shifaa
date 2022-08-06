@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity"
+    android:layout_margin="4dp">
+
+
+    <ImageView
+        android:id="@+id/imagpha"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:src="@drawable/phar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nameDrag"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="2dp"
+            android:text="@string/NameOfDrag" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/SalryOfDrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="3dp"
+            android:text="@string/salry" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="3dp"
+        android:text="LE" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/pluseAction"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+
+            android:text="+" />
+
+        <EditText
+            android:id="@+id/numOfDrag"
+            android:layout_width="37dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:textAlignment="center"
+            android:text="0" />
+
+        <Button
+            style="@style/customstyle"
+            android:id="@+id/minesAction"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="-" />
+<ImageView
+    android:id="@+id/img_cart"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@drawable/cart"/>
+    </LinearLayout>
+</LinearLayout>

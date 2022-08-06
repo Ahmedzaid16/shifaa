@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".confirmation"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_name"
+        style="@style/customstyle" />
+
+    <EditText
+        android:id="@+id/c_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:inputType="text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        style="@style/customstyle" />
+
+    <EditText
+        android:id="@+id/c_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:inputType="text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/floor"
+        style="@style/customstyle" />
+
+    <EditText
+        android:id="@+id/floor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:inputType="numberDecimal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apartment"
+        style="@style/customstyle" />
+
+    <EditText
+        android:id="@+id/apartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_num"
+        style="@style/customstyle" />
+
+    <EditText
+        android:id="@+id/phone_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:inputType="phone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_o"
+        style="@style/customstyle" />
+
+    <TextView
+        android:id="@+id/total_o_p"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        style="@style/customstyle" />
+    <Button
+        android:id="@+id/con_btn"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/customstyle"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:text="@string/con_btn" />
+
+</LinearLayout>
