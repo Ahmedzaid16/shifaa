@@ -6,15 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".boone">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Boone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.155" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:layout_margin="4dp"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="367dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="search"
+            android:textAlignment="center"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <ListView
+            android:id="@+id/list_viewboo"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_addTocart_boo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Cart" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

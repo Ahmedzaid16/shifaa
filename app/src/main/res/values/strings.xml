@@ -7,5 +7,14 @@
     <string name="name">name</string>
     <string name="conpassword">Confirm password</string>
     <string name="pass">Password</string>
+    <string name="salry">salary</string>
+    <string name="NameOfDrag">name of drug</string>
+    <string name="con_btn">Confirm</string>
+    <string name="total_o">Total Price :</string>
+    <string name="phone_num">Phone Num.</string>
+    <string name="apartment">Apartment Num</string>
+    <string name="floor">Floor Num</string>
+    <string name="address">Address</string>
+    <string name="your_name">Your Name</string>
 
 </resources>
