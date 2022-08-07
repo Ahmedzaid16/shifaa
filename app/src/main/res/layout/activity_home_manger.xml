@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeManger"
+    android:background="@color/white">
+
+
+    <ViewFlipper
+        style="@style/customstyle"
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/img_booneM"
+            style="@style/customstyle"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/bone"/>
+        <ImageView
+            android:id="@+id/img_hert1"
+            style="@style/customstyle"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/heart"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_brainM"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            style="@style/customstyle"
+            android:src="@drawable/brainf"/>
+        <ImageView
+            android:id="@+id/img_teethM"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            style="@style/customstyle"
+            android:src="@drawable/asnan"/>
+    </LinearLayout>
+
+</LinearLayout>

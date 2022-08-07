@@ -49,6 +49,7 @@ public class teeth extends AppCompatActivity {
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
 
+
     }
 
     class customListView extends BaseAdapter {

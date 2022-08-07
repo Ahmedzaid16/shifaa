@@ -1,5 +1,7 @@
 package com.example.lab1;
 
+import android.view.View;
+
 public class User<Button> {
 
     private String tupeOfDrag;
@@ -11,6 +13,8 @@ public class User<Button> {
         this.saleOfDrag = saleOfDrag;
         this.imgDrag = imgDrag;
     }
+
+
 
     public String getTupeOfDrag() {
         return tupeOfDrag;
