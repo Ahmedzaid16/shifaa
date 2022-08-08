@@ -1,12 +1,14 @@
 package com.example.lab1;
 
-public class User<Button> {
+import android.net.Uri;
+
+public class User2<Button> {
 
     private String tupeOfDrag;
     private String saleOfDrag;
-    private Integer imgDrag;
+    private Uri imgDrag;
 
-    public User(String tupeOfDrag, String saleOfDrag, int imgDrag) {
+    public User2(String tupeOfDrag, String saleOfDrag, Uri imgDrag) {
         this.tupeOfDrag = tupeOfDrag;
         this.saleOfDrag = saleOfDrag;
         this.imgDrag = imgDrag;
@@ -14,27 +16,27 @@ public class User<Button> {
 
 
 
-    public String getTupeOfDrag() {
+    public String getTupeOfDrag1() {
         return tupeOfDrag;
     }
 
-    public void setTupeOfDrag(String tupeOfDrag) {
+    public void setTupeOfDrag1(String tupeOfDrag) {
         this.tupeOfDrag = tupeOfDrag;
     }
 
-    public String getSaleOfDrag() {
+    public String getSaleOfDrag1() {
         return saleOfDrag;
     }
 
-    public void setSaleOfDrag(String saleOfDrag) {
+    public void setSaleOfDrag1(String saleOfDrag) {
         this.saleOfDrag = saleOfDrag;
     }
 
-    public Integer getImgDrag() {
+    public Uri getImgDrag1() {
         return imgDrag;
     }
 
-    public void setImgDrag(Integer imgDrag) {
+    public void setImgDrag1(Uri imgDrag) {
         this.imgDrag = imgDrag;
     }
 

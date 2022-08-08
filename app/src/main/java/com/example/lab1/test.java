@@ -21,7 +21,7 @@ import android.widget.ListView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TeethManger extends AppCompatActivity {
+public class test extends AppCompatActivity {
     Button brw_img;
     Uri selectedimg;
     ImageView imgcart;
@@ -31,20 +31,20 @@ public class TeethManger extends AppCompatActivity {
     Button add;
     ArrayList<User2> m = new ArrayList<User2>();
 
-    public TeethManger() throws IOException {
+    public test() throws IOException {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teeth_manger);
-        User = findViewById(R.id.newUserName);
-        pass = findViewById(R.id.newPassword);
-        add = findViewById(R.id.add_m);
+        setContentView(R.layout.activity_test);
+        User = findViewById(R.id.newUserNametest);
+        pass = findViewById(R.id.newPasswordtest);
+        add = findViewById(R.id.add_img_tset);
         customListView myAdapter = new customListView(m);
-        ls =  findViewById(R.id.list_item_m);
+        ls =  findViewById(R.id.list_test);
         ls.setAdapter(myAdapter);
-        brw_img = findViewById(R.id.brws_img);
+        brw_img = findViewById(R.id.brws_img_tset);
         brw_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

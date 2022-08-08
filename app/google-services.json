@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622228785753",
+    "project_id": "shefaa-229af",
+    "storage_bucket": "shefaa-229af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622228785753:android:613bc19d1c8c2bfbb7bf48",
+        "android_client_info": {
+          "package_name": "com.example.lab1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622228785753-884jojddk0rj8lsq0j9urft0d8d3pko8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR0oit8Zeni9VoATkUutFF-5Lg3sfBOAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622228785753-884jojddk0rj8lsq0j9urft0d8d3pko8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
