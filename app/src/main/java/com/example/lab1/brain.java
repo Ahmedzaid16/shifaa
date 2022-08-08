@@ -32,7 +32,7 @@ public class brain extends AppCompatActivity {
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(brain.this,confirmation.class);
+                Intent intent= new Intent(brain.this,Cart.class);
                 startActivity(intent);
             }
         });

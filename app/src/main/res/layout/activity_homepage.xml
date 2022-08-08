@@ -10,13 +10,13 @@
 
 
     <ViewFlipper
-        style="@style/customstyle"
         android:id="@+id/flipper"
+        style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="235dp"
         android:layout_gravity="center" />
 
-<LinearLayout
+    <LinearLayout
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

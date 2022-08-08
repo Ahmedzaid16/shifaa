@@ -33,7 +33,7 @@ public class teeth extends AppCompatActivity {
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(teeth.this,confirmation.class);
+                Intent intent= new Intent(teeth.this, Cart.class);
                 startActivity(intent);
             }
         });

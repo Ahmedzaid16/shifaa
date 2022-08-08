@@ -29,11 +29,11 @@ public class heart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_heart);
-        button_cart = findViewById(R.id.btn_addTocart_her);
+        button_cart = findViewById(R.id.btn_addTocart_her );
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(heart.this,confirmation.class);
+                Intent intent= new Intent(heart.this,Cart.class);
                 startActivity(intent);
             }
         });

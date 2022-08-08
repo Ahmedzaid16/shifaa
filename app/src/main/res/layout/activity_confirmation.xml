@@ -10,69 +10,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/your_name"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <EditText
         android:id="@+id/c_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/customstyle"
-        android:inputType="text"/>
+        android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <EditText
         android:id="@+id/c_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/customstyle"
-        android:inputType="text"/>
+        android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <EditText
         android:id="@+id/floor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/customstyle"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/apartment"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <EditText
         android:id="@+id/apartment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/customstyle"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/phone_num"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <EditText
         android:id="@+id/phone_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/customstyle"
-        android:inputType="phone"/>
+        android:inputType="phone" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_o"
-        style="@style/customstyle" />
+        style="@style/customstyle"
+        android:textColor="@color/c"/>
 
     <TextView
         android:id="@+id/total_o_p"

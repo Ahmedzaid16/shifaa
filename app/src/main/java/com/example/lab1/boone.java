@@ -17,7 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class boone extends AppCompatActivity {
-    Button button_cart ;
+    Button button_cart , button_con;
     ImageView imgcart;
     int[] imageDrag = {R.drawable.boon1,R.drawable.boon2,R.drawable.boon3, R.drawable.boon4,R.drawable.boon5,R.drawable.boon6, R.drawable.boon7, R.drawable.boon8, R.drawable.boon9, R.drawable.boon10};
     String[] s1, s2;
@@ -28,11 +28,13 @@ public class boone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_boone);
+
+
         button_cart = findViewById(R.id.btn_addTocart_boo);
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(boone.this,confirmation.class);
+                Intent intent= new Intent(boone.this,Cart.class);
                 startActivity(intent);
             }
         });
