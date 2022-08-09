@@ -9,23 +9,19 @@
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_brain.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_confirmation.xml" value="0.264" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_heart.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_home_manger.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_homepage.xml" value="0.2" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_sign_up.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_teeth.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/activity_teeth_manger.xml" value="0.264" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/list_item.xml" value="0.2859025032938076" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/list_item_m.xml" value="0.253125" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/mainpage.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1035" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_final2.xml" value="0.2365" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_boone.xml" value="0.2" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_brain.xml" value="0.25416666666666665" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_cart.xml" value="0.176" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_confirmation.xml" value="0.25416666666666665" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_heart.xml" value="0.1" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_homepage.xml" value="0.22826086956521738" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
-        <entry key="..\:/shifaa/app/src/main/res/layout/activity_teeth.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/I-slam/shifaa/app/src/main/res/drawable/et_style1.xml" value="0.1935" />
+        <entry key="..\:/Users/I-slam/shifaa/app/src/main/res/layout/activity_main.xml" value="0.264" />
       </map>
     </option>
   </component>
