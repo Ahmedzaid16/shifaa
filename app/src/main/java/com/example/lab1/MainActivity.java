@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(MainActivity.this, homepage.class);
                     startActivity(intent);
-                    Toast.makeText(getApplication(),"Faild;)",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(),"Faild 😢",Toast.LENGTH_LONG).show();
                 }
 
             }
