@@ -1,11 +1,6 @@
 package com.example.lab1;
 
-import static android.provider.MediaStore.Images.Thumbnails.getThumbnail;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +27,6 @@ public class test extends AppCompatActivity {
     EditText pass;
     Button add;
     ArrayList<User2> m = new ArrayList<User2>();
-
     public test() throws IOException {
     }
 

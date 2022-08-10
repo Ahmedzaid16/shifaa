@@ -1,8 +1,7 @@
 package com.example.lab1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -113,11 +113,13 @@ public class boone extends AppCompatActivity {
                 public void onClick(View v) {
                     String a = String.valueOf(txtdesc.getText().toString());
                     String b = cha.getText().toString();
-                    Float c = Float.parseFloat(a);
+                    Resources im = imag.getResources();
+                    /*Float c = Float.parseFloat(a);
                     Float d = Float.parseFloat(b);
                     Float e = c * d;
                     String f = String.valueOf(e).toString();
-                    Toast.makeText(boone.this,f, Toast.LENGTH_LONG).show();
+                    Toast.makeText(boone.this,f, Toast.LENGTH_LONG).show();*/
+
                 }
             });
             txtName.setText(Items.get(i).getTupeOfDrag());

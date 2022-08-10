@@ -1,20 +1,26 @@
 package com.example.lab1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class MainActivity extends AppCompatActivity {
+    public static Drawable[] imageDrag_cart= new Drawable[6];
+    public static int n=0;
+    public static int top =0;
+    public static String[] s1_c = new String[6];
+    public static String[] s2_c = new String[6];
     Button login;
     TextView signup;
-    TextView username;
-    TextView password;
+    EditText username;
+    EditText password;
     String name = "Ahmed";
     String pas = "111";
 
@@ -31,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Toast.makeText(getApplicationContext(), "sing in sucssfull", Toast.LENGTH_LONG).show();
-                if (username.getText().toString() != name && password.getText().toString() != pas) {
+                if (username.getText().toString().equals(name)&& password.getText().toString().equals(pas)) {
                     Intent intent = new Intent(MainActivity.this, HomeManger.class);
                     startActivity(intent);
-                    Toast.makeText(getApplication(),"succed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(),s2_c[0],Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, homepage.class);
                     startActivity(intent);
-                    Toast.makeText(getApplication(),"Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(),"Faild;)",Toast.LENGTH_LONG).show();
                 }
 
             }

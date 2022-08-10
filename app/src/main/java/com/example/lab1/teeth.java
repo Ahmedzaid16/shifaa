@@ -1,6 +1,10 @@
 package com.example.lab1;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.lab1.MainActivity.imageDrag_cart;
+import static com.example.lab1.MainActivity.n;
+import static com.example.lab1.MainActivity.s1_c;
+import static com.example.lab1.MainActivity.s2_c;
+import static com.example.lab1.MainActivity.top;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -111,13 +117,19 @@ public class teeth extends AppCompatActivity {
             imgcart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String a = String.valueOf(txtdesc.getText().toString());
-                    String b = cha.getText().toString();
+                    String a = String.valueOf(txtdesc.getText().toString());   //number
+                    String b = cha.getText().toString();                       //quantity
+                    String r = txtName.getText().toString();                   //name
                     Float c = Float.parseFloat(a);
                     Float d = Float.parseFloat(b);
                     Float e = c * d;
                     String f = String.valueOf(e).toString();
-                    Toast.makeText(teeth.this,f, Toast.LENGTH_LONG).show();
+                    top++;
+                   imageDrag_cart[n]=imag.getDrawable();
+                    s1_c[n]=r;
+                    s2_c[n]=b;
+                    n++;
+                    Toast.makeText(teeth.this,r, Toast.LENGTH_LONG).show();
                 }
             });
             txtName.setText(Items.get(i).getTupeOfDrag());
