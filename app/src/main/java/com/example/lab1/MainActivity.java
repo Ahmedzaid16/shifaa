@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
     public static Drawable[] imageDrag_cart= new Drawable[6];
     public static int n=0;
     public static int top =0;
-    public static String[] s1_c = new String[6];
-    public static String[] s2_c = new String[6];
+    public static float total =0;
+    public static String[] s1_c = new String[50];
+    public static String[] s2_c = new String[50];
+    public static String[] s3_c = new String[50];
     Button login;
     TextView signup;
     EditText username;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 if (username.getText().toString().equals(name)&& password.getText().toString().equals(pas)) {
                     Intent intent = new Intent(MainActivity.this, HomeManger.class);
                     startActivity(intent);
-                    Toast.makeText(getApplication(),s2_c[0],Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(),"done",Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, homepage.class);
                     startActivity(intent);

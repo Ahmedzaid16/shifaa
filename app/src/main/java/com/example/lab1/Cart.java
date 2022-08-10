@@ -3,7 +3,9 @@ package com.example.lab1;
 import static com.example.lab1.MainActivity.imageDrag_cart;
 import static com.example.lab1.MainActivity.s1_c;
 import static com.example.lab1.MainActivity.s2_c;
+import static com.example.lab1.MainActivity.s3_c;
 import static com.example.lab1.MainActivity.top;
+import static com.example.lab1.MainActivity.total;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class Cart extends AppCompatActivity {
     Button buttonview_cart ;
     ImageView imgcart;
+    TextView price;
     /*Drawable[] imageDrag = new Drawable[top];
     String[] s1=new String[top];
     String[] s2=new String[top];*/
@@ -32,9 +35,9 @@ public class Cart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_cart);
+        price = findViewById(R.id.tv_total_o);
+        price.setText(String.valueOf(total));
         buttonview_cart = findViewById(R.id.btn_con_cart);
         buttonview_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +52,7 @@ public class Cart extends AppCompatActivity {
             s2[i]=s2_c[i];
         }*/
         for (int i = 0; i < top; i++) {
-            l_item.add(new User3(s1_c[i], s2_c[i],imageDrag_cart[i]));
+            l_item.add(new User3(s1_c[i], s2_c[i],imageDrag_cart[i],s3_c[i]));
         }
 
         customListView myAdapter = new customListView(l_item);
@@ -99,6 +102,8 @@ public class Cart extends AppCompatActivity {
                     int present_value_int = Integer.parseInt(present_value_string);
                     present_value_int++;
                     cha.setText(String.valueOf(present_value_int));
+                    total+=Float.parseFloat(txtdesc.getText().toString());
+                    price.setText(String.valueOf(total));
                 }
             });
 
@@ -109,6 +114,8 @@ public class Cart extends AppCompatActivity {
                     int present_value_int = Integer.parseInt(present_value_string);
                     if (present_value_int > 0) {
                         present_value_int--;
+                        total-=Float.parseFloat(txtdesc.getText().toString());
+                        price.setText(String.valueOf(total));
                     }
                     cha.setText(String.valueOf(present_value_int));
                 }
@@ -129,6 +136,7 @@ public class Cart extends AppCompatActivity {
             txtName.setText(Items.get(i).getTupeOfDrag2());
             txtdesc.setText(Items.get(i).getSaleOfDrag2());
             imag.setImageDrawable(Items.get(i).getImgDrag2());
+            cha.setText(Items.get(i).getNumberOfdraugs2());
             return view1;
         }
     }

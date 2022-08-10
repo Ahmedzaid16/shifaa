@@ -19,6 +19,7 @@
             style="@style/customstyle"/>
 
         <TextView
+            style="@style/customstyle"
             android:id="@+id/tv_total_o"
             android:layout_width="0dp"
             android:layout_weight="1"

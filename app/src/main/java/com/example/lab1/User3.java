@@ -7,11 +7,13 @@ public class User3<Button> {
     private String tupeOfDrag;
     private String saleOfDrag;
     private Drawable imgDrag;
+    private String numberOfdraugs;
 
-    public User3(String tupeOfDrag, String saleOfDrag, Drawable imgDrag) {
+    public User3(String tupeOfDrag, String saleOfDrag, Drawable imgDrag,String numberOfdraugs) {
         this.tupeOfDrag = tupeOfDrag;
         this.saleOfDrag = saleOfDrag;
         this.imgDrag = imgDrag;
+        this.numberOfdraugs = numberOfdraugs;
     }
 
 
@@ -39,4 +41,12 @@ public class User3<Button> {
         this.imgDrag = imgDrag;
     }
 
+    public void setNumberOfdraugs2(String numberOfdraugs)
+    {
+        this.numberOfdraugs = numberOfdraugs;
+    }
+    public String getNumberOfdraugs2()
+    {
+        return numberOfdraugs;
+    }
 }
