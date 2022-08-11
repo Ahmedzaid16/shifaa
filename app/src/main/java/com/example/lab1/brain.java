@@ -1,6 +1,12 @@
 package com.example.lab1;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.lab1.MainActivity.imageDrag_cart;
+import static com.example.lab1.MainActivity.no;
+import static com.example.lab1.MainActivity.s1_c;
+import static com.example.lab1.MainActivity.s2_c;
+import static com.example.lab1.MainActivity.s3_c;
+import static com.example.lab1.MainActivity.top;
+import static com.example.lab1.MainActivity.total;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -109,13 +117,25 @@ public class brain extends AppCompatActivity {
             imgcart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String a = String.valueOf(txtdesc.getText().toString());
-                    String b = cha.getText().toString();
+                    String a = String.valueOf(txtdesc.getText().toString());   //Price
+                    String b = cha.getText().toString();                       //quantity
+                    String r = txtName.getText().toString();                   //name
                     Float c = Float.parseFloat(a);
                     Float d = Float.parseFloat(b);
-                    Float e = c * d;
-                    String f = String.valueOf(e).toString();
-                    Toast.makeText(brain.this,f, Toast.LENGTH_LONG).show();
+                    if(d!=0) {
+                        Float e = c * d;
+                        String f = String.valueOf(e).toString();
+                        top++;
+                        imageDrag_cart[no] = imag.getDrawable();
+                        s1_c[no] = r;
+                        s2_c[no] = a;
+                        s3_c[no] = b;
+                        total += e;
+                        no++;
+                        Toast.makeText(brain.this, r, Toast.LENGTH_LONG).show();
+                    }
+                    else
+                        Toast.makeText(brain.this,"add element first", Toast.LENGTH_LONG).show();
                 }
             });
             txtName.setText(Items.get(i).getTupeOfDrag());

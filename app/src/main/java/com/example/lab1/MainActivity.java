@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static Drawable[] imageDrag_cart= new Drawable[6];
-    public static int n=0;
+    public static int no = 0;
     public static int top =0;
     public static float total =0;
     public static String[] s1_c = new String[50];

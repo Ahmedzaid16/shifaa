@@ -1,7 +1,7 @@
 package com.example.lab1;
 
 import static com.example.lab1.MainActivity.imageDrag_cart;
-import static com.example.lab1.MainActivity.n;
+import static com.example.lab1.MainActivity.no;
 import static com.example.lab1.MainActivity.s1_c;
 import static com.example.lab1.MainActivity.s2_c;
 import static com.example.lab1.MainActivity.s3_c;
@@ -128,12 +128,12 @@ public class teeth extends AppCompatActivity {
                         Float e = c * d;
                         String f = String.valueOf(e).toString();
                         top++;
-                        imageDrag_cart[n] = imag.getDrawable();
-                        s1_c[n] = r;
-                        s2_c[n] = a;
-                        s3_c[n] = b;
+                        imageDrag_cart[no] = imag.getDrawable();
+                        s1_c[no] = r;
+                        s2_c[no] = a;
+                        s3_c[no] = b;
                         total += e;
-                        n++;
+                        no++;
                         Toast.makeText(teeth.this, r, Toast.LENGTH_LONG).show();
                            }
                     else
