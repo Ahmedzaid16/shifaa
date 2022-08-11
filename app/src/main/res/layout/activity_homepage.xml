@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".homepage"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:src="@drawable/cor">
 
 
-    <ViewFlipper
+  <ViewFlipper
         android:id="@+id/flipper"
         style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="235dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        />
 
     <LinearLayout
     android:gravity="center"
@@ -26,7 +28,7 @@
         style="@style/customstyle"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:src="@drawable/bone"/>
+        android:src="@drawable/bone" />
     <ImageView
         android:id="@+id/img_hert"
         style="@style/customstyle"

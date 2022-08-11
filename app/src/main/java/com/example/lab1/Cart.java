@@ -23,10 +23,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+
 public class Cart extends AppCompatActivity {
     Button buttonview_cart ;
-    ImageView imgcart;
+    ImageView imgcart , imgbasket;
     TextView price;
+
     /*Drawable[] imageDrag = new Drawable[top];
     String[] s1=new String[top];
     String[] s2=new String[top];*/
@@ -51,7 +53,7 @@ public class Cart extends AppCompatActivity {
             s1[i]=s1_c[i];
             s2[i]=s2_c[i];
         }*/
-        for (int i = 0; i < top; i++) {
+        for ( int i = 0; i < top; i++) {
             l_item.add(new User3(s1_c[i], s2_c[i],imageDrag_cart[i],s3_c[i]));
         }
 
@@ -94,7 +96,9 @@ public class Cart extends AppCompatActivity {
             ImageView imag = (ImageView) view1.findViewById(R.id.imagpha);
             Button btnPlu = (Button) view1.findViewById(R.id.pluseAction);
             Button btnmin = (Button) view1.findViewById(R.id.minesAction);
-            imgcart= (ImageView)view1.findViewById(R.id.img_cart);
+            imgcart= (ImageView) view1.findViewById(R.id.img_cart);
+            imgbasket =(ImageView) view1.findViewById(R.id.img_cart);
+            imgbasket.setImageResource(R.drawable.basket);
             btnPlu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -120,17 +124,25 @@ public class Cart extends AppCompatActivity {
                     cha.setText(String.valueOf(present_value_int));
                 }
             });
-            imgcart.setClickable(true);
-            imgcart.setOnClickListener(new View.OnClickListener() {
+            imgbasket.setClickable(true);
+            imgbasket.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String a = String.valueOf(txtdesc.getText().toString());
-                    String b = cha.getText().toString();
-                    Float c = Float.parseFloat(a);
-                    Float d = Float.parseFloat(b);
-                    Float e = c * d;
-                    String f = String.valueOf(e).toString();
-                    Toast.makeText(Cart.this,f, Toast.LENGTH_LONG).show();
+
+
+                    l_item.remove(Items.get(i));
+                    customListView myAdapter = new customListView(l_item);
+                    ListView ls = (ListView) findViewById(R.id.listview_cart);
+                    ls.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged() ;
+
+                   // String a = String.valueOf(txtdesc.getText().toString());
+                    //String b = cha.getText().toString();
+                    //Float c = Float.parseFloat("");
+                    //Float d = Float.parseFloat("");
+                    //Float e = c * d;
+                    //String f = String.valueOf(e).toString();
+
                 }
             });
             txtName.setText(Items.get(i).getTupeOfDrag2());

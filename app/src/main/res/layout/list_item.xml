@@ -77,6 +77,8 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:text="-" />
+
+
 <ImageView
     android:id="@+id/img_cart"
     android:layout_width="40dp"
