@@ -43,10 +43,14 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, HomeManger.class);
                     startActivity(intent);
                     Toast.makeText(getApplication(),"done",Toast.LENGTH_LONG).show();
+                    username.setText("");
+                    password.setText("");
                 } else {
                     Intent intent = new Intent(MainActivity.this, homepage.class);
                     startActivity(intent);
                     Toast.makeText(getApplication(),"Faild 😢",Toast.LENGTH_LONG).show();
+                    username.setText("");
+                    password.setText("");
                 }
 
             }

@@ -70,12 +70,11 @@
             android:id="@+id/edtPassword"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textAlignment="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/et_style1"
-            />
+            android:background="@drawable/et_style1" />
 
 
 
