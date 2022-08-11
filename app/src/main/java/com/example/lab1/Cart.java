@@ -1,6 +1,7 @@
 package com.example.lab1;
 
 import static com.example.lab1.MainActivity.imageDrag_cart;
+import static com.example.lab1.MainActivity.no;
 import static com.example.lab1.MainActivity.s1_c;
 import static com.example.lab1.MainActivity.s2_c;
 import static com.example.lab1.MainActivity.s3_c;
@@ -131,6 +132,7 @@ public class Cart extends AppCompatActivity {
 
 
                     l_item.remove(Items.get(i));
+                    top -- ;
                     customListView myAdapter = new customListView(l_item);
                     ListView ls = (ListView) findViewById(R.id.listview_cart);
                     ls.setAdapter(myAdapter);
