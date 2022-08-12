@@ -133,8 +133,8 @@ public class heart extends AppCompatActivity {
                         s3_c[no] = b;
                         total += e;
                         no++;
-                        Toast.makeText(heart.this, r, Toast.LENGTH_LONG).show();
-                    }
+                        Toast.makeText(heart.this,r+" Added to Cart", Toast.LENGTH_LONG).show();
+                        cha.setText("0");                    }
                     else
                         Toast.makeText(heart.this,"add element first", Toast.LENGTH_LONG).show();
                 }

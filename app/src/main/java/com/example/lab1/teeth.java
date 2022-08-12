@@ -43,6 +43,7 @@ public class teeth extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(teeth.this, Cart.class);
                 startActivity(intent);
+
             }
         });
         s1 = getResources().getStringArray(R.array.nameDrag_tee);
@@ -134,7 +135,8 @@ public class teeth extends AppCompatActivity {
                         s3_c[no] = b;
                         total += e;
                         no++;
-                        Toast.makeText(teeth.this, r, Toast.LENGTH_LONG).show();
+                        Toast.makeText(teeth.this,r+" Added to Cart", Toast.LENGTH_LONG).show();
+                        cha.setText("0");
                            }
                     else
                         Toast.makeText(teeth.this,"add element first", Toast.LENGTH_LONG).show();

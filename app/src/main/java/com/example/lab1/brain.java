@@ -132,8 +132,8 @@ public class brain extends AppCompatActivity {
                         s3_c[no] = b;
                         total += e;
                         no++;
-                        Toast.makeText(brain.this, r, Toast.LENGTH_LONG).show();
-                    }
+                        Toast.makeText(brain.this,r+" Added to Cart", Toast.LENGTH_LONG).show();
+                        cha.setText("0");                    }
                     else
                         Toast.makeText(brain.this,"add element first", Toast.LENGTH_LONG).show();
                 }

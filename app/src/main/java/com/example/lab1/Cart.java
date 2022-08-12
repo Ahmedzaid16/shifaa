@@ -9,6 +9,7 @@ import static com.example.lab1.MainActivity.top;
 import static com.example.lab1.MainActivity.total;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +29,6 @@ public class Cart extends AppCompatActivity {
     Button buttonview_cart ;
     ImageView imgcart , imgbasket;
     TextView price;
-
     /*Drawable[] imageDrag = new Drawable[top];
     String[] s1=new String[top];
     String[] s2=new String[top];*/
@@ -49,13 +48,11 @@ public class Cart extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*for(int i=0 ; i<= imageDrag_cart.length;i++) {
-            imageDrag[i]=imageDrag_cart[i];
-            s1[i]=s1_c[i];
-            s2[i]=s2_c[i];
-        }*/
+
+
         for ( int i = 0; i < top; i++) {
-            l_item.add(new User3(s1_c[i], s2_c[i],imageDrag_cart[i],s3_c[i]));
+
+               l_item.add(new User3(s1_c[i], s2_c[i], imageDrag_cart[i], s3_c[i]));
         }
 
         customListView myAdapter = new customListView(l_item);
@@ -129,22 +126,49 @@ public class Cart extends AppCompatActivity {
             imgbasket.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     l_item.remove(Items.get(i));
+                    String[] temp1=new String[50];
+                    String[] temp2=new String[50];
+                    String[] temp3=new String[50];
+                    Drawable[] temp4 = new Drawable[50];
+                    for(int j =0;j<top;j++)
+                    {
+                        boolean ch=false;
+                        if(j==i || ch==true) {
+                            temp1[j] = s1_c[j+1];
+                            temp2[j] = s2_c[j+1];
+                            temp3[j] = s3_c[j+1];
+                            temp4[j] = imageDrag_cart[j+1];
+                            ch=true;
+                        }
+                        else
+                        {
+                            temp1[j] = s1_c[j];
+                            temp2[j] = s2_c[j];
+                            temp3[j] = s3_c[j];
+                            temp4[j] = imageDrag_cart[j];
+                        }
+                    }
                     top -- ;
+                    for(int j =0;j<top;j++)
+                    {
+                            s1_c[j]=temp1[j];
+                            s2_c[j]=temp2[j];
+                            s3_c[j]=temp3[j];
+                            imageDrag_cart[j]=temp4[j];
+                    }
                     customListView myAdapter = new customListView(l_item);
                     ListView ls = (ListView) findViewById(R.id.listview_cart);
                     ls.setAdapter(myAdapter);
                     myAdapter.notifyDataSetChanged() ;
-
-                   // String a = String.valueOf(txtdesc.getText().toString());
-                    //String b = cha.getText().toString();
-                    //Float c = Float.parseFloat("");
-                    //Float d = Float.parseFloat("");
-                    //Float e = c * d;
-                    //String f = String.valueOf(e).toString();
-
+                    String a = String.valueOf(txtdesc.getText().toString());
+                    String b = cha.getText().toString();
+                    Float c = Float.parseFloat(a);
+                    Float d = Float.parseFloat(b);
+                    Float e = c * d;
+                    total-=e;
+                    price.setText(String.valueOf(total));
+                    no--;
                 }
             });
             txtName.setText(Items.get(i).getTupeOfDrag2());
