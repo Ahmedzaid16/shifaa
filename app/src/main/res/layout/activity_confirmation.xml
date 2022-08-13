@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/your_name"
         style="@style/customstyle"
-        android:textColor="@color/c"/>
+        android:textColor="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/c_name"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="@string/address"
         style="@style/customstyle"
-        android:textColor="@color/c"/>
+        android:textColor="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/c_address"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="@string/floor"
         style="@style/customstyle"
-        android:textColor="@color/c"/>
+        android:textColor="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/floor"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/apartment"
         style="@style/customstyle"
-        android:textColor="@color/c"/>
+        android:textColor="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/apartment"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:text="@string/phone_num"
         style="@style/customstyle"
-        android:textColor="@color/c"/>
+        android:textColor="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/phone_num"
@@ -82,7 +82,7 @@
            android:layout_height="wrap_content"
            android:text="@string/total_o"
            style="@style/customstyle"
-           android:textColor="@color/c"/>
+           android:textColor="@color/DarkBlue"/>
        <TextView
            android:id="@+id/total_o_p"
            android:layout_width="0dp"

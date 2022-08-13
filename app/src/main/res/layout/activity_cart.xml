@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="@string/total_o"
             android:layout_margin="15dp"
-            android:textColor="@color/c"
+            android:textColor="@color/DarkBlue"
             style="@style/customstyle"/>
 
         <TextView

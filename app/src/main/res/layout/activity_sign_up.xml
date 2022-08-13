@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".signUp"
     android:gravity="center"
-    >
+    android:orientation="vertical"
+    tools:context=".signUp">
 
 
     <TextView
+        style="@style/customstyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -18,93 +17,124 @@
         android:text="@string/sinup"
         android:textSize="32sp"
         android:textStyle="bold"
-        style="@style/customstyle"/>
+        android:textColor="@color/DarkBlue"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/user"
+            android:textColor="@color/DarkBlue"/>
+
+        <EditText
+            android:id="@+id/userName_SignUp"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:inputType="text"
+            android:textSize="26sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="your Email"
+            android:textColor="@color/DarkBlue"/>
+
+        <EditText
+            android:id="@+id/email"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:inputType="text"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            style="@style/customstyle"
+            android:text="@string/password"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/DarkBlue"/>
+
+        <EditText
+            android:id="@+id/password_SignUp"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="**************"
+            android:inputType="textPassword"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/conpassword"
+            android:textColor="@color/DarkBlue"/>
+
+        <EditText
+            android:id="@+id/repassword_SignUp"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="**************"
+            android:inputType="textPassword"
+            android:textSize="26sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="131dp"
+        <Button
+            android:id="@+id/btnsignup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/user"
-            style="@style/customstyle" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:layout_margin="8dp"
-            android:inputType="text"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/password"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:layout_margin="8dp"
-            android:inputType="textPassword"
-            android:hint="**************"
             style="@style/customstyle"
-            />
-    </LinearLayout>   <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-    <TextView
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/conpassword"
-       style="@style/customstyle" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/sinup"
             android:textSize="26sp"
-            android:layout_margin="8dp"
-            android:inputType="textPassword"
-            android:hint="**************"
-            style="@style/customstyle"/>
+            android:backgroundTint="@color/DarkBlue"/>
+
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal">
-    <Button
-        android:id="@+id/btnsignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sinup"
-        android:textSize="26sp"
-        android:layout_marginTop="40dp"
-        />
-
-</LinearLayout>
-
 
 </LinearLayout>

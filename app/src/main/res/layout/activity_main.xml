@@ -1,104 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
     <LinearLayout
+        style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
-
-
-        style="@style/customstyle">
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginBottom="40dp"
-            android:src="@drawable/shifaalogi" />
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo">
+        </ImageView>
 
         <TextView
+            style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="40dp"
             android:text="LOG IN"
-            android:textSize="16sp"
-            android:textColor="#D61616"
-            android:textStyle="bold"
-            />
+            android:textColor="@color/DarkBlue"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user"
-            android:textSize="20sp"
-            android:layout_gravity="left"
-            android:textColor="#213EE1"
-            android:textStyle="bold"
-            android:layout_marginLeft="50sp"
-            />
         <EditText
             android:id="@+id/edtUsername"
-            android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:inputType="text"
-            android:textAlignment="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/et_style1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="20sp"
-            android:layout_gravity="left"
-            android:textColor="#213EE1"
-            android:textStyle="bold"
-            android:layout_marginLeft="50sp"
-            />
+            android:hint="@string/user"
+            android:inputType="text"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/Email_LogIn"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="text"
+            android:textAlignment="center" />
+
         <EditText
             android:id="@+id/edtPassword"
-            android:layout_width="300dp"
-            android:layout_height="45dp"
+            style="@style/customstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pass"
             android:inputType="textPassword"
-            android:textAlignment="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/et_style1" />
-
-
+            android:textAlignment="center" />
 
         <Button
-            android:id="@+id/btnLongin"
-            android:layout_width="160dp"
+            android:id="@+id/btnLogIn"
+            style="@style/customstyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
             android:text="login"
-            android:textStyle="bold"
-            android:layout_margin="10dp" />
+            android:backgroundTint="@color/DarkBlue"/>
 
         <TextView
             android:id="@+id/infoTxtCredits"
+            style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
+            android:layout_margin="10sp"
             android:autoLink="web"
+            android:clickable="true"
             android:linksClickable="true"
             android:text="@string/sinup"
-            android:clickable="true"
-            android:layout_margin="10sp"
-            ></TextView>
+            android:textColor="@color/DarkBlue">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/google"
+                style="@style/customstyle"
+                android:layout_width="176dp"
+                android:layout_height="120dp"
+                android:src="@drawable/google1" />
+
+            <ImageView
+                android:id="@+id/facebook"
+                style="@style/customstyle"
+                android:layout_width="176dp"
+                android:layout_height="120dp"
+                android:src="@drawable/facbook1" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
 </LinearLayout>
