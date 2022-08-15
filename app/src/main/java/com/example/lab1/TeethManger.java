@@ -26,6 +26,7 @@ public class TeethManger extends AppCompatActivity {
     EditText drugname;
     EditText drugprice;
     Button add;
+    String temp;
     ArrayList<User2> m = new ArrayList<User2>();
 
     public TeethManger() throws IOException {
@@ -110,6 +111,10 @@ public class TeethManger extends AppCompatActivity {
         {
             selectedimg = data.getData();
             brw_img.setImageURI(selectedimg);
+           // temp=selectedimg.toString();
+            int temp2=R.drawable.brawse;
+            temp=String.valueOf(temp2);
+            drugname.setText(temp);
         }
     }
 }

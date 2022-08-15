@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1041229359557",
+    "firebase_url": "https://shifaa-f42eb-default-rtdb.firebaseio.com",
+    "project_id": "shifaa-f42eb",
+    "storage_bucket": "shifaa-f42eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041229359557:android:37eb99c1754eb1ff8c43ac",
+        "android_client_info": {
+          "package_name": "com.example.lab1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041229359557-9pf87poq5ioj4fev2no6v40djj44b2m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAig86bTzszlgMe0vrPZsUIA46MoTwDDgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041229359557-9pf87poq5ioj4fev2no6v40djj44b2m0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
