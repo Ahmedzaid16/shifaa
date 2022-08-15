@@ -111,10 +111,6 @@ public class TeethManger extends AppCompatActivity {
         {
             selectedimg = data.getData();
             brw_img.setImageURI(selectedimg);
-           // temp=selectedimg.toString();
-            int temp2=R.drawable.brawse;
-            temp=String.valueOf(temp2);
-            drugname.setText(temp);
         }
     }
 }
