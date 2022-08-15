@@ -13,56 +13,57 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/newUserName"
+            android:id="@+id/Drugname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/newPassword"
+            android:id="@+id/drugprice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="price"/>
 
-<Button
-    android:id="@+id/brws_img"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:background="@drawable/brawse"/>
-
+        <ImageView
+            android:id="@+id/brws_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/brawse" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/add_m"
+            style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
-            style="@style/customstyle"/>
+            android:text="Add" />
 
         <Button
+            style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
-            style="@style/customstyle"/>
+            android:text="Delete" />
 
         <Button
+            style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update"
-            style="@style/customstyle"/>
+            android:text="Update" />
 
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/list_item_m"
+        style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        style="@style/customstyle"/>
+        android:layout_weight="1" />
 
 </LinearLayout>

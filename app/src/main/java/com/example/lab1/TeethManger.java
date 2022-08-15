@@ -1,11 +1,6 @@
 package com.example.lab1;
 
-import static android.provider.MediaStore.Images.Thumbnails.getThumbnail;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,16 +13,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class TeethManger extends AppCompatActivity {
-    Button brw_img;
+    ImageView brw_img;
     Uri selectedimg;
     ImageView imgcart;
     ListView ls;
-    EditText User;
-    EditText pass;
+    EditText drugname;
+    EditText drugprice;
     Button add;
     ArrayList<User2> m = new ArrayList<User2>();
 
@@ -38,8 +35,8 @@ public class TeethManger extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teeth_manger);
-        User = findViewById(R.id.newUserName);
-        pass = findViewById(R.id.newPassword);
+        drugname = findViewById(R.id.Drugname);
+        drugprice = findViewById(R.id.drugprice);
         add = findViewById(R.id.add_m);
         customListView myAdapter = new customListView(m);
         ls =  findViewById(R.id.list_item_m);
@@ -55,10 +52,11 @@ public class TeethManger extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m.add(new User2(User.getText().toString(), pass.getText().toString(),selectedimg));
+                m.add(new User2(drugname.getText().toString(), drugprice.getText().toString(),selectedimg));
                 myAdapter.notifyDataSetChanged();
-                User.setText("");
-                pass.setText("");
+                drugname.setText("");
+                drugprice.setText("");
+                brw_img.setImageResource(R.drawable.brawse);
             }
         });
 
@@ -104,12 +102,14 @@ public class TeethManger extends AppCompatActivity {
 
     }
 
+    //Gallary
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data!= null)
         {
             selectedimg = data.getData();
+            brw_img.setImageURI(selectedimg);
         }
     }
 }

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "586201326692",
+    "firebase_url": "https://chifaa-d7b34-default-rtdb.firebaseio.com",
+    "project_id": "chifaa-d7b34",
+    "storage_bucket": "chifaa-d7b34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586201326692:android:b29939163821a92cc12b71",
+        "android_client_info": {
+          "package_name": "com.example.lab1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586201326692-jejuorn854gamg9d5fdu8d6lknqc6c5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Bh4aa_0e9g2uYgHMawpId7lzRH8Zzng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586201326692-jejuorn854gamg9d5fdu8d6lknqc6c5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586201326692:android:ed0200e866a7ab60c12b71",
+        "android_client_info": {
+          "package_name": "com.example.shifaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586201326692-jejuorn854gamg9d5fdu8d6lknqc6c5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Bh4aa_0e9g2uYgHMawpId7lzRH8Zzng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586201326692-jejuorn854gamg9d5fdu8d6lknqc6c5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
