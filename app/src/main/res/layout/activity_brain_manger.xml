@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TeethManger">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/brain_Drugname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Drug Name"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/brain_drugprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Drug price"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:id="@+id/brain_brws_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/brawse" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/brain_add_m"
+            style="@style/customstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <Button
+            style="@style/customstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
+
+        <Button
+            style="@style/customstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/brain_list_item_m"
+        style="@style/customstyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

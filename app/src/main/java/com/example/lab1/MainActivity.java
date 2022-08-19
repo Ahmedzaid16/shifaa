@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, TeethManger.class);
+                Intent intent = new Intent(MainActivity.this, HomeManger.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this ,brain_manger.class);
+                startActivity(intent);
             }
         });
 

@@ -27,8 +27,8 @@ import java.util.ArrayList;
 public class brain extends AppCompatActivity {
     ImageView imgcart;
     Button button_cart ;
-    int[] imageDrag = {R.drawable.buspirone,R.drawable.calmepam,R.drawable.diazepam, R.drawable.milga,R.drawable.motival,R.drawable.neuroton, R.drawable.pregavalex, R.drawable.tegral, R.drawable.thiotacid, R.drawable.uripan};
-    String[] s1, s2;
+    //int[] imageDrag = {R.drawable.buspirone,R.drawable.calmepam,R.drawable.diazepam, R.drawable.milga,R.drawable.motival,R.drawable.neuroton, R.drawable.pregavalex, R.drawable.tegral, R.drawable.thiotacid, R.drawable.uripan};
+    //String[] s1, s2;
     ArrayList<User> l_item = new ArrayList<>();
 
     @Override
@@ -44,12 +44,12 @@ public class brain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        s1 = getResources().getStringArray(R.array.nameDrag_br);
-        s2 = getResources().getStringArray(R.array.typeDrag_br);
+       // s1 = getResources().getStringArray(R.array.nameDrag_br);
+       // s2 = getResources().getStringArray(R.array.typeDrag_br);
 
-        for (int i = 0; i < imageDrag.length; i++) {
-            l_item.add(new User(s1[i], s2[i], imageDrag[i]));
-        }
+        //for (int i = 0; i < imageDrag.length; i++) {
+        //    l_item.add(new User(s1[i], s2[i], imageDrag[i]));
+       // }
 
         customListView myAdapter = new customListView(l_item);
         ListView ls = (ListView) findViewById(R.id.list_viewbr);

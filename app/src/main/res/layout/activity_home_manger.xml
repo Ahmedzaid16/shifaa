@@ -26,7 +26,7 @@
             android:layout_height="160dp"
             android:src="@drawable/bone"/>
         <ImageView
-            android:id="@+id/img_hert1"
+            android:id="@+id/img_heartM"
             style="@style/customstyle"
             android:layout_width="160dp"
             android:layout_height="160dp"
