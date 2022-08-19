@@ -58,17 +58,26 @@ public class teeth extends AppCompatActivity {
         customListView myAdapter = new customListView(l_item);
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+        final boolean[] first = new boolean[1];
+        if(myAdapter.isEmpty());
+           first[0] =true;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data1");
         reference.addChildEventListener(new ChildEventListener() {
+            ;
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
                 data d = snapshot.getValue(data.class);
                 myAdapter.notifyDataSetChanged();
                 if (d.getName() != null) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (!first[0]) {
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                            first[0] =false;
+                            Toast.makeText(getApplicationContext(), "دخل الشرط", Toast.LENGTH_SHORT).show();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     storageReference = FirebaseStorage.getInstance().getReference("images/teeth/" + d.getName());
                     try {
