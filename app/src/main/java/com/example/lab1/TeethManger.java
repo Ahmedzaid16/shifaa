@@ -101,7 +101,6 @@ public class TeethManger extends AppCompatActivity {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
                                         Toast.makeText(getApplicationContext(), "undone", Toast.LENGTH_SHORT).show();
-
                                     }
                                 });
 
@@ -171,58 +170,7 @@ public class TeethManger extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
     }
-
-//    private void additems(int adap) {
-//        for (int i = 0; i <= 1; i++) {
-//            String tem = temp2[i];
-//            Toast.makeText(getApplicationContext(),tem, Toast.LENGTH_SHORT).show();
-//                    /*//data d = dataSnapshot.getValue(data.class);
-//                    //String key = reference.child("data1").push().getKey();
-//                    //temp.add(d);
-//                     //String na= dataSnapshot1.child(key).child("name").getValue().toString();
-//                     //String pr= dataSnapshot1.child(key).child("price").getValue().toString();
-//                    //Toast.makeText(getApplicationContext(),na, Toast.LENGTH_SHORT).show();*/
-//
-//            storageReference = FirebaseStorage.getInstance().getReference("images/"+tem);
-//            try {
-//                File localfile = File.createTempFile("tempfile", ".jpg");
-//                int finalI = i;
-//                storageReference.getFile(localfile)
-//                        .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-//                            @Override
-//                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-//                                bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-//                                temp.add(new data(temp2[finalI], temp3[finalI], bitmap));
-//                                if (bitmap != null) {
-//                                    Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
-//                                    //myAdapter.notifyDataSetChanged();
-//                                } else
-//                                    Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }).addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(getApplicationContext(), "undone", Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        });
-//
-//            } catch (IOException e) {
-//                Toast.makeText(getApplicationContext(), "catch", Toast.LENGTH_SHORT).show();
-//
-//                e.printStackTrace();
-//            }
-//
-//        }
-//
-//    }
 
     class customListView extends BaseAdapter {
 
@@ -257,7 +205,6 @@ public class TeethManger extends AppCompatActivity {
             name.setText(Items.get(i).getName());
             price.setText(Items.get(i).getPrice());
             imag.setImageBitmap(Items.get(i).getImage());
-            /// imag.setImageBitmap(Bitmap.createScaledBitmap(Items.get(i).getImage(), 100, 100, false));
             return view1;
         }
 

@@ -9,6 +9,7 @@
 
 
     <ViewFlipper
+        android:id="@+id/fliper"
         style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="235dp"

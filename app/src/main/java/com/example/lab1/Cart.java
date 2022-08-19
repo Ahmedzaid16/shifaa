@@ -29,9 +29,6 @@ public class Cart extends AppCompatActivity {
     Button buttonview_cart ;
     ImageView imgcart , imgbasket;
     TextView price;
-    /*Drawable[] imageDrag = new Drawable[top];
-    String[] s1=new String[top];
-    String[] s2=new String[top];*/
     ArrayList<User3> l_item = new ArrayList<>();
 
     @Override

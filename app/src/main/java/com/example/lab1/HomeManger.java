@@ -7,12 +7,18 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeManger extends AppCompatActivity {
 
     ImageView img_teethM ;
     ImageView img_brainM ;
     ImageView img_heartM ;
+    ViewFlipper fliper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +26,21 @@ public class HomeManger extends AppCompatActivity {
         img_teethM = findViewById(R.id.img_teethM);
         img_brainM = findViewById(R.id.img_brainM);
         img_heartM = findViewById(R.id.img_heartM);
+        fliper = findViewById(R.id.fliper);
+        fliper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MangeOrder.class);
+                startActivity(intent);
+            }
+        });
+        FirebaseMessaging.getInstance().subscribeToTopic("buy").addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         img_teethM.setOnClickListener(new View.OnClickListener() {
             @Override

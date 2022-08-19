@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:text="Name Customer" />
+
+        <EditText
+            android:id="@+id/nameCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address Customer" />
+
+        <EditText
+            android:id="@+id/addressCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Floor of Customer"
+            style="@style/customstyle"/>
+
+        <EditText
+            android:id="@+id/floorNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="164dp"
+            android:layout_height="wrap_content"
+            android:text="Apartment Customer" />
+
+        <EditText
+            android:id="@+id/ApartmentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:text="Phone Customer" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/customstyle"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:text="Total Salry:" />
+
+        <TextView
+            android:id="@+id/TotalSalry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/customstyle"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/seeOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="See Order" />
+</LinearLayout>
