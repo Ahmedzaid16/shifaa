@@ -9,6 +9,8 @@ import static com.example.lab1.MainActivity.top;
 import static com.example.lab1.MainActivity.total;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,50 +22,128 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class heart extends AppCompatActivity {
 
     Button button_cart ;
     ImageView imgcart;
-    int[] imageDrag = {R.drawable.medicine1,R.drawable.medicine2,R.drawable.medicine3, R.drawable.medicine4,R.drawable.medicine5,R.drawable.medicine6, R.drawable.medicine7, R.drawable.medicine8, R.drawable.medicine9, R.drawable.medicine10};
-    String[] s1, s2;
-    ArrayList<User> l_item = new ArrayList<>();
-
+    Bitmap bitmap;
+    ArrayList<data> l_item = new ArrayList<>();
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_heart);
-        button_cart = findViewById(R.id.btn_addTocart_her );
+        button_cart = findViewById(R.id.btn_addTocart_her);
+        ListView ls = (ListView) findViewById(R.id.list_view_her);
+        heart.customListView myAdapter = new heart.customListView(l_item);
+        ls.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data3");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                data d = snapshot.getValue(data.class);
+                myAdapter.notifyDataSetChanged();
+                if (d.getName() != null) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    storageReference = FirebaseStorage.getInstance().getReference("images/heart/" + d.getName());
+                    try {
+                        File localfile = File.createTempFile("tempfile", ".jpg");
+                        storageReference.getFile(localfile)
+                                .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                        bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+                                        l_item.add(new data(d.getName(), d.getPrice(), bitmap));
+                                        if (bitmap != null) {
+                                            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+                                            myAdapter.notifyDataSetChanged();
+                                        } else
+                                            Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getApplicationContext(), "undone", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                    } catch (IOException e) {
+                        Toast.makeText(getApplicationContext(), "catch", Toast.LENGTH_SHORT).show();
+
+                        e.printStackTrace();
+                    }
+                } else
+                    Toast.makeText(getApplicationContext(), "fish waqt fish waqt fish waqt", Toast.LENGTH_SHORT).show();
+                myAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(heart.this,Cart.class);
+                Intent intent= new Intent(heart.this, Cart.class);
                 startActivity(intent);
+
             }
         });
-        s1 = getResources().getStringArray(R.array.nameDrag_her);
-        s2 = getResources().getStringArray(R.array.typeDrag_her);
 
-        for (int i = 0; i < imageDrag.length; i++) {
-            l_item.add(new User(s1[i], s2[i], imageDrag[i]));
-        }
 
-        customListView myAdapter = new customListView(l_item);
-        ListView ls = (ListView) findViewById(R.id.list_view_her);
-        ls.setAdapter(myAdapter);
-        myAdapter.notifyDataSetChanged();
+
 
     }
 
     class customListView extends BaseAdapter {
 
-        ArrayList<User> Items = new ArrayList<User>();
+        ArrayList<data> Items = new ArrayList<data>();
 
-        customListView(ArrayList<User> Items) {
+        customListView(ArrayList<data> Items) {
             this.Items = Items;
         }
 
@@ -74,7 +154,7 @@ public class heart extends AppCompatActivity {
 
         @Override
         public Object getItem(int i) {
-            return Items.get(i).getTupeOfDrag();
+            return Items.get(i).getName();
         }
 
         @Override
@@ -134,14 +214,15 @@ public class heart extends AppCompatActivity {
                         total += e;
                         no++;
                         Toast.makeText(heart.this,r+" Added to Cart", Toast.LENGTH_LONG).show();
-                        cha.setText("0");                    }
+                        cha.setText("0");
+                    }
                     else
                         Toast.makeText(heart.this,"add element first", Toast.LENGTH_LONG).show();
                 }
             });
-            txtName.setText(Items.get(i).getTupeOfDrag());
-            txtdesc.setText(Items.get(i).getSaleOfDrag());
-            imag.setImageResource(Items.get(i).getImgDrag());
+            txtName.setText(Items.get(i).getName());
+            txtdesc.setText(Items.get(i).getPrice());
+            imag.setImageBitmap(Items.get(i).getImage());
             return view1;
         }
     }

@@ -13,21 +13,21 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/Drugname"
+            android:id="@+id/boone_Drugname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Drug Name"
             android:textAlignment="center"/>
 
         <EditText
-            android:id="@+id/drugprice"
+            android:id="@+id/boone_drugprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="price"
+            android:hint="Drug price"
             android:textAlignment="center"/>
 
         <ImageView
-            android:id="@+id/brws_img"
+            android:id="@+id/boone_brws_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -41,7 +41,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/add_m"
+            android:id="@+id/boone_add_m"
             style="@style/customstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list_item_m"
+        android:id="@+id/boone_list_item_m"
         style="@style/customstyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
