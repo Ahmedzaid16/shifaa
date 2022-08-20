@@ -116,8 +116,7 @@ public class MangeOrder extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                    Intent intent = new Intent(MangeOrder.this, view_orders.class);
-                    String strName = Items.get(i).getKey() ;
-                    intent.putExtra("key", strName);
+                    intent.putExtra("key",Items.get(i).getKey());
                    startActivity(intent);
                 }
             });

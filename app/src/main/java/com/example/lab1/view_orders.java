@@ -28,17 +28,13 @@ public class view_orders extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ListView list_Order;
     private ArrayList<User> list = new ArrayList<>();
-    String key;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_orders);
-        Intent iin= getIntent();
-        Bundle b = iin.getExtras();
-        if(b!=null)
-        {
-            key =(String) b.get("key");
-        }
+        String key= getIntent().getExtras().get("key").toString();
+        Toast.makeText(getApplicationContext(),key,Toast.LENGTH_SHORT).show();
         list_Order = findViewById(R.id.list_orderf);
         customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
@@ -48,9 +44,10 @@ public class view_orders extends AppCompatActivity {
         mDatabaseRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    User order = snapshot.child(key).child("drug").getValue(User.class);
-                    list.add(new User(order.getTupeOfDrag(), order.getSaleOfDrag(), order.getQuantity()));
-                    custom.notifyDataSetChanged();
+                   User order = snapshot.child(key).child("drug").child("0").getValue(User.class);
+                   Toast.makeText(getApplicationContext(),order.getTupeOfDrag(),Toast.LENGTH_SHORT).show();
+                    //list.add(new User(order.getTupeOfDrag(), order.getSaleOfDrag(), order.getQuantity()));
+                   // custom.notifyDataSetChanged();
 
 
             }
