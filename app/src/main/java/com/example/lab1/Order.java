@@ -8,18 +8,27 @@ public class Order {
     private String apartmentNum;
     private String phoneNumber;
     private String totalOrder;
-
+    String key;
     public Order() {
 
     }
 
-    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder) {
+    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder,String key) {
         this.nameCustomer = nameCustomer;
         this.addressCustomer = addressCustomer;
         this.floorNumber = floorNumber;
         this.apartmentNum = apartmentNum;
         this.phoneNumber = phoneNumber;
         this.totalOrder = totalOrder;
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getNameCustomer() {

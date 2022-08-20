@@ -4,15 +4,21 @@ public class User<Button> {
 
     private String tupeOfDrag;
     private String saleOfDrag;
-    private Integer imgDrag;
+    private String quantity;
 
-    public User(String tupeOfDrag, String saleOfDrag, int imgDrag) {
+    public User(String tupeOfDrag, String saleOfDrag,String quantity) {
         this.tupeOfDrag = tupeOfDrag;
         this.saleOfDrag = saleOfDrag;
-        this.imgDrag = imgDrag;
+        this.quantity = quantity;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
     public String getTupeOfDrag() {
         return tupeOfDrag;
@@ -28,14 +34,6 @@ public class User<Button> {
 
     public void setSaleOfDrag(String saleOfDrag) {
         this.saleOfDrag = saleOfDrag;
-    }
-
-    public Integer getImgDrag() {
-        return imgDrag;
-    }
-
-    public void setImgDrag(Integer imgDrag) {
-        this.imgDrag = imgDrag;
     }
 
 }

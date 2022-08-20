@@ -1,5 +1,8 @@
 package com.example.lab1;
 
+import static com.example.lab1.MainActivity.s1_c;
+import static com.example.lab1.MainActivity.s2_c;
+import static com.example.lab1.MainActivity.s3_c;
 import static com.example.lab1.MainActivity.top;
 import static com.example.lab1.MainActivity.total;
 import static com.example.lab1.MainActivity.no;
@@ -20,8 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.ArrayList;
+
 public class confirmation extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
+    private ArrayList<User> drug = new ArrayList<>();
     EditText name;
     EditText address;
     EditText floorNum;
@@ -47,9 +53,16 @@ public class confirmation extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i=0;i<top;i++)
+                {
+
+                     drug.add(new User(s1_c[i],s2_c[i],s3_c[i]));
+                }
                 if (phoneNum.length() == 11) {
-                    Order order = new Order(name.getText().toString(), address.getText().toString(), floorNum.getText().toString(), apartmentNum.getText().toString(), phoneNum.getText().toString(), totalOrder.getText().toString());
-                    mDatabaseRef.push().setValue(order);
+                    String key = mDatabaseRef.push().getKey();
+                    Order order = new Order(name.getText().toString(), address.getText().toString(), floorNum.getText().toString(), apartmentNum.getText().toString(), phoneNum.getText().toString(), totalOrder.getText().toString(),key);
+                    mDatabaseRef.child(key).child("customer info").setValue(order);
+                    mDatabaseRef.child(key).child("drug").setValue(drug);
                     name.setText("");
                     address.setText("");
                     floorNum.setText("");
@@ -59,6 +72,9 @@ public class confirmation extends AppCompatActivity {
                     top = 0;
                     no = 0;
                     total = 0.0F;
+                    s1_c[0]=null;
+                    s2_c[0]=null;
+                    s3_c[0]=null;
                     Intent intent = new Intent(confirmation.this, homepage.class);
                     startActivity(intent);
                 }

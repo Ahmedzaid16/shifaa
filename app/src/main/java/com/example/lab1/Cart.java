@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,8 +42,12 @@ public class Cart extends AppCompatActivity {
         buttonview_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(Cart.this, confirmation.class);
-                startActivity(intent);
+                if (s1_c[0]!=null) {
+                    Intent intent = new Intent(Cart.this, confirmation.class);
+                    startActivity(intent);
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"add drug first",Toast.LENGTH_SHORT).show();
             }
         });
 

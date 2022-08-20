@@ -2,7 +2,6 @@ package com.example.lab1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,16 +24,22 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class MangeOrder extends AppCompatActivity {
+public class view_orders extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ListView list_Order;
-    private ArrayList<Order> list = new ArrayList<>();
-
+    private ArrayList<User> list = new ArrayList<>();
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mange_order);
-        list_Order = findViewById(R.id.listOrder);
+        setContentView(R.layout.activity_view_orders);
+        Intent iin= getIntent();
+        Bundle b = iin.getExtras();
+        if(b!=null)
+        {
+            key =(String) b.get("key");
+        }
+        list_Order = findViewById(R.id.list_orderf);
         customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
         custom.notifyDataSetChanged();
@@ -43,10 +48,11 @@ public class MangeOrder extends AppCompatActivity {
         mDatabaseRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                 Order order = snapshot.child("customer info").getValue(Order.class);
-                 String key = order.getKey();
-                 list.add(new Order(order.getNameCustomer(),order.getAddressCustomer(),order.getFloorNumber(),order.getApartmentNum(),order.getPhoneNumber(),order.getTotalOrder(),key));
-                 custom.notifyDataSetChanged();
+                    User order = snapshot.child(key).child("drug").getValue(User.class);
+                    list.add(new User(order.getTupeOfDrag(), order.getSaleOfDrag(), order.getQuantity()));
+                    custom.notifyDataSetChanged();
+
+
             }
 
             @Override
@@ -73,9 +79,9 @@ public class MangeOrder extends AppCompatActivity {
 
     class customListView extends BaseAdapter {
 
-        ArrayList<Order> Items = new ArrayList<>();
+        ArrayList<User> Items = new ArrayList<>();
 
-        customListView(ArrayList<Order> Items) {
+        customListView(ArrayList<User> Items) {
             this.Items = Items;
         }
 
@@ -86,7 +92,7 @@ public class MangeOrder extends AppCompatActivity {
 
         @Override
         public Object getItem(int i) {
-            return Items.get(i).getNameCustomer();
+            return Items.get(i).getTupeOfDrag();
         }
 
         @Override
@@ -97,30 +103,13 @@ public class MangeOrder extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             LayoutInflater layoutInflater = getLayoutInflater();
-            View view1 = layoutInflater.inflate(R.layout.list_order, null);
-            EditText nameCustomer = view1.findViewById(R.id.nameCustomer);
-            EditText addressCustomer = view1.findViewById(R.id.addressCustomer);
-            EditText floorCustomer = view1.findViewById(R.id.floorNumber);
-            EditText ApartmentNumber = view1.findViewById(R.id.ApartmentNumber);
-            EditText phoneNumber = view1.findViewById(R.id.phoneNumber);
-            TextView TotalSalry = view1.findViewById(R.id.TotalSalry);
-            Button seeOrder = view1.findViewById(R.id.seeOrder);
-            nameCustomer.setText(Items.get(i).getNameCustomer());
-            addressCustomer.setText(Items.get(i).getAddressCustomer());
-            floorCustomer.setText(Items.get(i).getFloorNumber());
-            ApartmentNumber.setText(Items.get(i).getApartmentNum());
-            phoneNumber.setText(Items.get(i).getPhoneNumber());
-            TotalSalry.setText(Items.get(i).getTotalOrder());
-
-            seeOrder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                   Intent intent = new Intent(MangeOrder.this, view_orders.class);
-                    String strName = Items.get(i).getKey() ;
-                    intent.putExtra("key", strName);
-                   startActivity(intent);
-                }
-            });
+            View view1 = layoutInflater.inflate(R.layout.list_order_drug, null);
+            EditText drugname = view1.findViewById(R.id.etxt_drugname);
+            EditText drugprice = view1.findViewById(R.id.etxt_drugprice);
+            EditText quantity= view1.findViewById(R.id.etxt_quantity);
+            drugname.setText(Items.get(i).getTupeOfDrag());
+            drugprice.setText(Items.get(i).getSaleOfDrag());
+            quantity.setText(Items.get(i).getQuantity());
             return view1;
         }
     }

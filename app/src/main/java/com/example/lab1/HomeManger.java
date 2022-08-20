@@ -18,6 +18,7 @@ public class HomeManger extends AppCompatActivity {
     ImageView img_teethM ;
     ImageView img_brainM ;
     ImageView img_heartM ;
+    ImageView img_boonM;
     ViewFlipper fliper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class HomeManger extends AppCompatActivity {
         img_teethM = findViewById(R.id.img_teethM);
         img_brainM = findViewById(R.id.img_brainM);
         img_heartM = findViewById(R.id.img_heartM);
+        img_boonM = findViewById(R.id.img_booneM);
         fliper = findViewById(R.id.fliper);
         fliper.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,13 @@ public class HomeManger extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeManger.this , heart_manager.class);
+                startActivity(intent);
+            }
+        });
+        img_boonM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeManger.this , boone_manager.class);
                 startActivity(intent);
             }
         });

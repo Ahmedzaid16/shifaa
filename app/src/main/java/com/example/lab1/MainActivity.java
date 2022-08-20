@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         user = findViewById(R.id.edtUsername);
         passw = findViewById(R.id.edtPassword);
         email_login = findViewById(R.id.Email_LogIn);

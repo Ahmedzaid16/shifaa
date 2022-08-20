@@ -74,7 +74,6 @@ public class teeth extends AppCompatActivity {
                         try {
                             TimeUnit.SECONDS.sleep(1);
                             first[0] =false;
-                            Toast.makeText(getApplicationContext(), "دخل الشرط", Toast.LENGTH_SHORT).show();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -89,7 +88,6 @@ public class teeth extends AppCompatActivity {
                                         bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
                                         l_item.add(new data(d.getName(), d.getPrice(), bitmap));
                                         if (bitmap != null) {
-                                            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                                             myAdapter.notifyDataSetChanged();
                                         } else
                                             Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
