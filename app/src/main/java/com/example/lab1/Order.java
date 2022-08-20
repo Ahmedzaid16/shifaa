@@ -9,12 +9,11 @@ public class Order {
     private String phoneNumber;
     private String totalOrder;
     String key;
-    String drugsquantity;
-    public Order() {
+    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder) {
 
     }
 
-    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder,String key,String drugsquantity) {
+    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder,String key) {
         this.nameCustomer = nameCustomer;
         this.addressCustomer = addressCustomer;
         this.floorNumber = floorNumber;
@@ -22,15 +21,6 @@ public class Order {
         this.phoneNumber = phoneNumber;
         this.totalOrder = totalOrder;
         this.key = key;
-        this.drugsquantity = drugsquantity;
-    }
-
-    public String getDrugsquantity() {
-        return drugsquantity;
-    }
-
-    public void setDrugsquantity(String drugsquantity) {
-        this.drugsquantity = drugsquantity;
     }
 
     public String getKey() {
