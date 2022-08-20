@@ -39,7 +39,6 @@ public class HomeManger extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("buy").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
             }
         });
 

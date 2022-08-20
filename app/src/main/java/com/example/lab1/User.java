@@ -1,10 +1,14 @@
 package com.example.lab1;
 
-public class User<Button> {
+public class User{
 
     private String tupeOfDrag;
     private String saleOfDrag;
     private String quantity;
+    public User()
+    {
+
+    }
 
     public User(String tupeOfDrag, String saleOfDrag,String quantity) {
         this.tupeOfDrag = tupeOfDrag;

@@ -60,9 +60,10 @@ public class confirmation extends AppCompatActivity {
                 }
                 if (phoneNum.length() == 11) {
                     String key = mDatabaseRef.push().getKey();
-                    Order order = new Order(name.getText().toString(), address.getText().toString(), floorNum.getText().toString(), apartmentNum.getText().toString(), phoneNum.getText().toString(), totalOrder.getText().toString(),key);
+                    Order order = new Order(name.getText().toString(), address.getText().toString(), floorNum.getText().toString(), apartmentNum.getText().toString(), phoneNum.getText().toString(), totalOrder.getText().toString(),key,String.valueOf(top));
                     mDatabaseRef.child(key).child("customer info").setValue(order);
-                    mDatabaseRef.child(key).child("drug").child("drug1").setValue(drug);
+                        mDatabaseRef.child(key).child("drug").setValue(drug);
+
                     name.setText("");
                     address.setText("");
                     floorNum.setText("");

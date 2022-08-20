@@ -63,7 +63,6 @@ public class teeth extends AppCompatActivity {
            first[0] =true;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data1");
         reference.addChildEventListener(new ChildEventListener() {
-            ;
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 

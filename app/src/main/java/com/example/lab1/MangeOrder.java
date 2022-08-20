@@ -45,7 +45,7 @@ public class MangeOrder extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                  Order order = snapshot.child("customer info").getValue(Order.class);
                  String key = order.getKey();
-                 list.add(new Order(order.getNameCustomer(),order.getAddressCustomer(),order.getFloorNumber(),order.getApartmentNum(),order.getPhoneNumber(),order.getTotalOrder(),key));
+                 list.add(new Order(order.getNameCustomer(),order.getAddressCustomer(),order.getFloorNumber(),order.getApartmentNum(),order.getPhoneNumber(),order.getTotalOrder(),key,order.getDrugsquantity()));
                  custom.notifyDataSetChanged();
             }
 

@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -34,36 +35,22 @@ public class view_orders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_orders);
         String key= getIntent().getExtras().get("key").toString();
-        Toast.makeText(getApplicationContext(),key,Toast.LENGTH_SHORT).show();
         list_Order = findViewById(R.id.list_orderf);
         customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
         custom.notifyDataSetChanged();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("order");
-        mDatabaseRef.addChildEventListener(new ChildEventListener() {
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("order/"+key);
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            //int i =0;
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                   User order = snapshot.child(key).child("drug").child("0").getValue(User.class);
-                   Toast.makeText(getApplicationContext(),order.getTupeOfDrag(),Toast.LENGTH_SHORT).show();
-                    //list.add(new User(order.getTupeOfDrag(), order.getSaleOfDrag(), order.getQuantity()));
-                   // custom.notifyDataSetChanged();
-
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int order = Integer.parseInt(snapshot.child("customer info").child("drugsquantity").getValue().toString());
+                for(int i=0;i<order;i++) {
+                    User user = snapshot.child("drug").child(String.valueOf(i)).getValue(User.class);
+                    list.add(new User(user.getTupeOfDrag(), user.getSaleOfDrag(), user.getQuantity()));
+                    custom.notifyDataSetChanged();
+                }
 
             }
 
