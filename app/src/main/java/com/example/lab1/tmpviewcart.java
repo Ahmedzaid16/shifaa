@@ -30,7 +30,6 @@ public class tmpviewcart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tmpviewcart);
         String key= getIntent().getExtras().get("key").toString();
-        Toast.makeText(getApplicationContext(),key, Toast.LENGTH_SHORT).show();
         list_Order = findViewById(R.id.list_orderf);
         customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
@@ -43,7 +42,6 @@ public class tmpviewcart extends AppCompatActivity {
                 int order = Integer.parseInt(snapshot.child("customer info").child("drugsquantity").getValue().toString());
                 for(int i=0;i<order;i++) {
                     User user = snapshot.child("drug").child(String.valueOf(i)).getValue(User.class);
-                    Toast.makeText(getApplicationContext(), user.getTupeOfDrag(), Toast.LENGTH_SHORT).show();
                     list.add(new User(user.getTupeOfDrag(), user.getSaleOfDrag(), user.getQuantity()));
                     custom.notifyDataSetChanged();
                 }
