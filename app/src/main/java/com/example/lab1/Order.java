@@ -9,7 +9,7 @@ public class Order {
     private String phoneNumber;
     private String totalOrder;
     String key;
-    public Order() {
+    public Order(String nameCustomer, String addressCustomer, String floorNumber, String apartmentNum, String phoneNumber, String totalOrder) {
 
     }
 
