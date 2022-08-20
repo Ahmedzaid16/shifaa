@@ -58,7 +58,7 @@ public class heart extends AppCompatActivity {
         heart.customListView myAdapter = new heart.customListView(l_item);
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data3");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("heart");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

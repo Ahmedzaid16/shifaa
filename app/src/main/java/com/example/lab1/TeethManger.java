@@ -69,7 +69,7 @@ public class TeethManger extends AppCompatActivity {
         lv = findViewById(R.id.list_item_m);
         customListView myAdapter = new customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data1");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("teeth");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -150,11 +150,14 @@ public class TeethManger extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data data1 = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(data1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    data teeth = new data(editTextname.getText().toString(), editTextprice.getText().toString());
+                    reference.push().setValue(teeth).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
+                            editTextname.setText(null);
+                            editTextprice.setText(null);
+                            imageView.setImageResource(R.drawable.brawse);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -167,6 +170,7 @@ public class TeethManger extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(getApplicationContext(), "pick image first", Toast.LENGTH_SHORT).show();
+
 
             }
         });
@@ -241,6 +245,7 @@ public class TeethManger extends AppCompatActivity {
         if (resultCode == RESULT_OK && aa!= null)
         {
             selectedimg = aa.getData();
+            imageView.setImageURI(selectedimg);
         }
     }
 

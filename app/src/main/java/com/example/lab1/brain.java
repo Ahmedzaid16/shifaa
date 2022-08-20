@@ -57,7 +57,7 @@ public class brain extends AppCompatActivity {
         brain.customListView myAdapter = new brain.customListView(l_item);
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data2");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("brain");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

@@ -62,7 +62,7 @@ public class heart_manager extends AppCompatActivity {
         lv = findViewById(R.id.heart_list_item_m);
         heart_manager.customListView myAdapter = new heart_manager.customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data3");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("heart");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -144,11 +144,14 @@ public class heart_manager extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data data3 = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(data3).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    data heart = new data(editTextname.getText().toString(), editTextprice.getText().toString());
+                    reference.push().setValue(heart).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
+                            editTextname.setText(null);
+                            editTextprice.setText(null);
+                            imageView.setImageResource(R.drawable.brawse);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -161,6 +164,7 @@ public class heart_manager extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(getApplicationContext(), "pick image first", Toast.LENGTH_SHORT).show();
+
 
             }
         });
@@ -237,6 +241,7 @@ public class heart_manager extends AppCompatActivity {
         if (resultCode == RESULT_OK && aa!= null)
         {
             selectedimg = aa.getData();
+            imageView.setImageURI(selectedimg);
         }
     }
 }

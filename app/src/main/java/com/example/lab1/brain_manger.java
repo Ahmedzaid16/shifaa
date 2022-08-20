@@ -61,7 +61,7 @@ public class brain_manger extends AppCompatActivity {
         lv = findViewById(R.id.brain_list_item_m);
         brain_manger.customListView myAdapter = new brain_manger.customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data2");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("brain");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -143,11 +143,14 @@ public class brain_manger extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data data2 = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(data2).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    data brain = new data(editTextname.getText().toString(), editTextprice.getText().toString());
+                    reference.push().setValue(brain).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
+                            editTextname.setText(null);
+                            editTextprice.setText(null);
+                            imageView.setImageResource(R.drawable.brawse);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -160,6 +163,7 @@ public class brain_manger extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(getApplicationContext(), "pick image first", Toast.LENGTH_SHORT).show();
+
 
             }
         });
@@ -236,6 +240,7 @@ public class brain_manger extends AppCompatActivity {
         if (resultCode == RESULT_OK && aa!= null)
         {
             selectedimg = aa.getData();
+            imageView.setImageURI(selectedimg);
         }
     }
 

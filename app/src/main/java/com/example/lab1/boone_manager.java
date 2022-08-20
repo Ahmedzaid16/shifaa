@@ -61,7 +61,7 @@ public class boone_manager extends AppCompatActivity {
         lv = findViewById(R.id.boone_list_item_m);
         boone_manager.customListView myAdapter = new boone_manager.customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data4");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("boone");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -143,11 +143,15 @@ public class boone_manager extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data data4 = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(data4).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    data boone = new data(editTextname.getText().toString(), editTextprice.getText().toString());
+                    reference.push().setValue(boone).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
+                            editTextname.setText(null);
+                            editTextprice.setText(null);
+                            imageView.setImageResource(R.drawable.brawse);
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -160,7 +164,6 @@ public class boone_manager extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(getApplicationContext(), "pick image first", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -236,6 +239,7 @@ public class boone_manager extends AppCompatActivity {
         if (resultCode == RESULT_OK && aa!= null)
         {
             selectedimg = aa.getData();
+            imageView.setImageURI(selectedimg);
         }
     }
 }

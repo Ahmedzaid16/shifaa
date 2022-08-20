@@ -58,7 +58,7 @@ public class boone extends AppCompatActivity {
         boone.customListView myAdapter = new boone.customListView(l_item);
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("data4");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("boone");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
