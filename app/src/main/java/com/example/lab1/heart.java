@@ -58,6 +58,9 @@ public class heart extends AppCompatActivity {
         heart.customListView myAdapter = new heart.customListView(l_item);
         ls.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+        final boolean[] first = new boolean[1];
+        if(myAdapter.isEmpty());
+        first[0] =true;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("heart");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
@@ -65,10 +68,13 @@ public class heart extends AppCompatActivity {
                 data d = snapshot.getValue(data.class);
                 myAdapter.notifyDataSetChanged();
                 if (d.getName() != null) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (!first[0]) {
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                            first[0] =false;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     storageReference = FirebaseStorage.getInstance().getReference("images/heart/" + d.getName());
                     try {
@@ -80,7 +86,6 @@ public class heart extends AppCompatActivity {
                                         bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
                                         l_item.add(new data(d.getName(), d.getPrice(), bitmap));
                                         if (bitmap != null) {
-                                            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                                             myAdapter.notifyDataSetChanged();
                                         } else
                                             Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
