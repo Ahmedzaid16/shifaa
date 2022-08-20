@@ -30,7 +30,6 @@ public class MangeOrder extends AppCompatActivity {
     private ListView list_Order;
     private ArrayList<Order> list = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +43,10 @@ public class MangeOrder extends AppCompatActivity {
         mDatabaseRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                 Order order = snapshot.getValue(Order.class);
-                 Toast.makeText(getApplicationContext(),order.getNameCustomer(), Toast.LENGTH_SHORT).show();
-                 list.add(new Order(order.getNameCustomer() , order.getAddressCustomer() , order.getFloorNumber() , order.getApartmentNum() , order.getPhoneNumber() , order.getTotalOrder()));
-                 custom.notifyDataSetChanged();
+                Order order = snapshot.child("customer info").getValue(Order.class);
+                String key = order.getKey();
+                list.add(new Order(order.getNameCustomer(),order.getAddressCustomer(),order.getFloorNumber(),order.getApartmentNum(),order.getPhoneNumber(),order.getTotalOrder(),key,order.getDrugsquantity()));
+                custom.notifyDataSetChanged();
             }
 
             @Override
@@ -116,8 +115,9 @@ public class MangeOrder extends AppCompatActivity {
             seeOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                  //  Intent intent = new Intent(MangeOrder.this, CardView.class);
-                   // startActivity(intent);
+                    Intent intent = new Intent(MangeOrder.this, tmpviewcart.class);
+                    intent.putExtra("key",Items.get(i).getKey());
+                    startActivity(intent);
                 }
             });
             return view1;

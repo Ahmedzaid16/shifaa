@@ -3,29 +3,24 @@ package com.example.lab1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class view_orders extends AppCompatActivity {
+public class tmpviewcart extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ListView list_Order;
     private ArrayList<User> list = new ArrayList<>();
@@ -33,13 +28,13 @@ public class view_orders extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_orders);
+        setContentView(R.layout.activity_tmpviewcart);
         String key= getIntent().getExtras().get("key").toString();
+        Toast.makeText(getApplicationContext(),key, Toast.LENGTH_SHORT).show();
         list_Order = findViewById(R.id.list_orderf);
         customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
         custom.notifyDataSetChanged();
-
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("order/"+key);
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             //int i =0;
@@ -48,6 +43,7 @@ public class view_orders extends AppCompatActivity {
                 int order = Integer.parseInt(snapshot.child("customer info").child("drugsquantity").getValue().toString());
                 for(int i=0;i<order;i++) {
                     User user = snapshot.child("drug").child(String.valueOf(i)).getValue(User.class);
+                    Toast.makeText(getApplicationContext(), user.getTupeOfDrag(), Toast.LENGTH_SHORT).show();
                     list.add(new User(user.getTupeOfDrag(), user.getSaleOfDrag(), user.getQuantity()));
                     custom.notifyDataSetChanged();
                 }
@@ -60,7 +56,6 @@ public class view_orders extends AppCompatActivity {
             }
         });
     }
-
     class customListView extends BaseAdapter {
 
         ArrayList<User> Items = new ArrayList<>();
