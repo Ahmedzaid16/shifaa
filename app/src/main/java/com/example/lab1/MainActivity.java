@@ -97,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
         String mail_signIn = email_login.getText().toString();
         String pass_singIn = passw.getText().toString();
 
-        if (username_signIn.isEmpty() || username_signIn.length() < 7) {
+        if(username_signIn.equals("Ahmed")){
+            Intent  intent = new Intent(MainActivity.this,HomeManger.class);
+            startActivity(intent);
+
+        }
+        else if (username_signIn.isEmpty() || username_signIn.length() < 7) {
             Toast.makeText(MainActivity.this, "Your username is not valid!", Toast.LENGTH_SHORT).show();
         } else if (mail_signIn.isEmpty() || !mail_signIn.contains("@")) {
             Toast.makeText(MainActivity.this, "Email is not valid!", Toast.LENGTH_SHORT).show();

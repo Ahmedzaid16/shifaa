@@ -40,4 +40,10 @@
         android:editable="false"/>
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/delete_m"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/basket"
+        android:layout_gravity="center"/>
 </LinearLayout>

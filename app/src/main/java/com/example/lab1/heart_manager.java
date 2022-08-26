@@ -48,9 +48,12 @@ public class heart_manager extends AppCompatActivity {
     ListView lv;
     Button uplode;
     Uri selectedimg;
+    DatabaseReference reference;
     StorageReference storageReference;
     ProgressDialog progressDialog;
     Bitmap bitmap;
+    heart_manager.customListView myAdapter = new heart_manager.customListView(temp);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,20 +63,25 @@ public class heart_manager extends AppCompatActivity {
         imageView = findViewById(R.id.heart_brws_img);
         uplode = findViewById(R.id.heart_add_m);
         lv = findViewById(R.id.heart_list_item_m);
-        heart_manager.customListView myAdapter = new heart_manager.customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("heart");
+        reference = FirebaseDatabase.getInstance().getReference("heart");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 data d = snapshot.getValue(data.class);
+                final boolean[] first = new boolean[1];
+                if(myAdapter.isEmpty());
+                first[0] =true;
                 myAdapter.notifyDataSetChanged();
                 if (d.getName() != null) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (!first[0]) {
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                            first[0] =false;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     storageReference = FirebaseStorage.getInstance().getReference("images/heart/" + d.getName());
                     try {
@@ -83,7 +91,7 @@ public class heart_manager extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                                         bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-                                        temp.add(new data(d.getName(), d.getPrice(), bitmap));
+                                        temp.add(new data(d.getName(), d.getPrice(), d.getKey(),bitmap));
                                         if (bitmap != null) {
                                             Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                                             myAdapter.notifyDataSetChanged();
@@ -144,8 +152,9 @@ public class heart_manager extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data heart = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(heart).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    String key1 = reference.push().getKey();
+                    data heart = new data(editTextname.getText().toString(), editTextprice.getText().toString(),key1);
+                    reference.child(key1).setValue(heart).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
@@ -205,6 +214,28 @@ public class heart_manager extends AppCompatActivity {
             price.setText(Items.get(i).getPrice());
             imag.setImageBitmap(Items.get(i).getImage());
             /// imag.setImageBitmap(Bitmap.createScaledBitmap(Items.get(i).getImage(), 100, 100, false));
+            ImageView delete = view1.findViewById(R.id.delete_m);
+            delete.setClickable(true);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    reference.child(Items.get(i).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            storageReference.child(Items.get(i).getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getApplicationContext(), "deleted", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            Items.remove(Items.get(i));
+                            myAdapter.notifyDataSetChanged();
+
+                        }
+                    });
+                }
+            });
             return view1;
         }
 
@@ -222,7 +253,7 @@ public class heart_manager extends AppCompatActivity {
                         if (progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(getApplicationContext(),"done",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(),"done",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -230,7 +261,7 @@ public class heart_manager extends AppCompatActivity {
                         if (progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
                     }
                 });
     }

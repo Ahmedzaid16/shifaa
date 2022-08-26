@@ -84,7 +84,7 @@ public class heart extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                                         bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-                                        l_item.add(new data(d.getName(), d.getPrice(), bitmap));
+                                        l_item.add(new data(d.getName(), d.getPrice(), d.getKey(),bitmap));
                                         if (bitmap != null) {
                                             myAdapter.notifyDataSetChanged();
                                         } else

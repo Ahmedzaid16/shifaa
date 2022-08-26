@@ -55,9 +55,12 @@ public class TeethManger extends AppCompatActivity {
     ListView lv;
     Button uplode;
     Uri selectedimg;
+    DatabaseReference reference;
     StorageReference storageReference;
     ProgressDialog progressDialog;
     Bitmap bitmap;
+    customListView myAdapter = new customListView(temp);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,20 +70,25 @@ public class TeethManger extends AppCompatActivity {
         imageView = findViewById(R.id.brws_img);
         uplode = findViewById(R.id.add_m);
         lv = findViewById(R.id.list_item_m);
-        customListView myAdapter = new customListView(temp);
         lv.setAdapter(myAdapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("teeth");
+         reference = FirebaseDatabase.getInstance().getReference("teeth");
         reference.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 data d = snapshot.getValue(data.class);
+                final boolean[] first = new boolean[1];
+                if(myAdapter.isEmpty());
+                first[0] =true;
                 myAdapter.notifyDataSetChanged();
                 if (d.getName() != null) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (!first[0]) {
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                            first[0] =false;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     storageReference = FirebaseStorage.getInstance().getReference("images/teeth/" + d.getName());
                     try {
@@ -90,17 +98,17 @@ public class TeethManger extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                                         bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-                                        temp.add(new data(d.getName(), d.getPrice(), bitmap));
+                                        temp.add(new data(d.getName(), d.getPrice(), d.getKey(),bitmap));
                                         if (bitmap != null) {
-                                            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+                                           // Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                                             myAdapter.notifyDataSetChanged();
                                         } else
-                                            Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
+                                           Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getApplicationContext(), "undone", Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(getApplicationContext(), "undone", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
@@ -150,8 +158,9 @@ public class TeethManger extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedimg!= null)
                 {
-                    data teeth = new data(editTextname.getText().toString(), editTextprice.getText().toString());
-                    reference.push().setValue(teeth).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    String key1 = reference.push().getKey();
+                    data teeth = new data(editTextname.getText().toString(), editTextprice.getText().toString(),key1);
+                    reference.child(key1).setValue(teeth).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "added sucssesfuly", Toast.LENGTH_SHORT).show();
@@ -209,6 +218,28 @@ public class TeethManger extends AppCompatActivity {
             name.setText(Items.get(i).getName());
             price.setText(Items.get(i).getPrice());
             imag.setImageBitmap(Items.get(i).getImage());
+            ImageView delete = view1.findViewById(R.id.delete_m);
+            delete.setClickable(true);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    reference.child(Items.get(i).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            storageReference.child(Items.get(i).getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getApplicationContext(), "deleted", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            Items.remove(Items.get(i));
+                            myAdapter.notifyDataSetChanged();
+
+                        }
+                    });
+                }
+            });
             return view1;
         }
 
@@ -226,7 +257,7 @@ public class TeethManger extends AppCompatActivity {
                         if (progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(getApplicationContext(),"done",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(),"done",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -234,7 +265,7 @@ public class TeethManger extends AppCompatActivity {
                         if (progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -5,15 +5,26 @@ import android.graphics.Bitmap;
 public class data {
     private String name;
     private String price;
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     private Bitmap image;
     public data()
     {
 
     }
-    public data(String name, String price, Bitmap image)
+    public data(String name, String price,String key, Bitmap image)
     {
         this.name=name;
         this.price=price;
+        this.key=key;
         this.image=image;
 
     }
@@ -23,6 +34,12 @@ public class data {
         this.price=price;
         //this.image=image;
 
+    }
+
+    public data(String name, String price, String key) {
+        this.name = name;
+        this.price = price;
+        this.key = key;
     }
 
     public String getName() {
