@@ -22,6 +22,7 @@
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/layout/mainpage.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1035" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/lab1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_final2.xml" value="0.2365" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_boone.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_boone_manager.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_brain_manger.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_cart.xml" value="0.25416666666666665" />
@@ -31,7 +32,10 @@
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_homepage.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_mange_order.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_teeth.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_teeth_manger.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_tmpviewcart.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/activity_view_orders.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/20155/AndroidStudioProjects/test/app/src/main/res/layout/list_item.xml" value="0.25416666666666665" />

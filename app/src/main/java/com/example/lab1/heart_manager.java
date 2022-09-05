@@ -77,7 +77,7 @@ public class heart_manager extends AppCompatActivity {
                 if (d.getName() != null) {
                     if (!first[0]) {
                         try {
-                            TimeUnit.SECONDS.sleep(1);
+                            TimeUnit.MILLISECONDS.sleep(1500);
                             first[0] =false;
                         } catch (InterruptedException e) {
                             e.printStackTrace();

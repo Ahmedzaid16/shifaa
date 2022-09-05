@@ -31,15 +31,6 @@
             android:textColor="@color/DarkBlue"/>
 
         <EditText
-            android:id="@+id/edtUsername"
-            style="@style/customstyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/user"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <EditText
             android:id="@+id/Email_LogIn"
             style="@style/customstyle"
             android:layout_width="match_parent"

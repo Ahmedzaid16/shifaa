@@ -64,7 +64,6 @@ public class boone_manager extends AppCompatActivity {
         lv.setAdapter(myAdapter);
         reference = FirebaseDatabase.getInstance().getReference("boone");
         reference.addChildEventListener(new ChildEventListener() {
-
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 data d = snapshot.getValue(data.class);
@@ -75,7 +74,7 @@ public class boone_manager extends AppCompatActivity {
                 if (d.getName() != null) {
                     if (!first[0]) {
                         try {
-                            TimeUnit.SECONDS.sleep(1);
+                            TimeUnit.MILLISECONDS.sleep(1500);
                             first[0] =false;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -167,8 +166,8 @@ public class boone_manager extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "added Failed", Toast.LENGTH_SHORT).show();
                         }
                     });
-                    myAdapter.notifyDataSetChanged();
                     uplodeimage();
+                    myAdapter.notifyDataSetChanged();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "pick image first", Toast.LENGTH_SHORT).show();

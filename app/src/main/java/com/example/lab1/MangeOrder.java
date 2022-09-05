@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,13 +31,12 @@ public class MangeOrder extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ListView list_Order;
     private ArrayList<Order> list = new ArrayList<>();
-
+    customListView custom = new customListView(list);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mange_order);
         list_Order = findViewById(R.id.listOrder);
-        customListView custom = new customListView(list);
         list_Order.setAdapter(custom);
         custom.notifyDataSetChanged();
 
@@ -105,19 +106,31 @@ public class MangeOrder extends AppCompatActivity {
             EditText phoneNumber = view1.findViewById(R.id.phoneNumber);
             TextView TotalSalry = view1.findViewById(R.id.TotalSalry);
             Button seeOrder = view1.findViewById(R.id.seeOrder);
+            Button confirmo_rder = view1.findViewById(R.id.confirm_order);
             nameCustomer.setText(Items.get(i).getNameCustomer());
             addressCustomer.setText(Items.get(i).getAddressCustomer());
             floorCustomer.setText(Items.get(i).getFloorNumber());
             ApartmentNumber.setText(Items.get(i).getApartmentNum());
             phoneNumber.setText(Items.get(i).getPhoneNumber());
             TotalSalry.setText(Items.get(i).getTotalOrder());
-
             seeOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MangeOrder.this, tmpviewcart.class);
                     intent.putExtra("key",Items.get(i).getKey());
                     startActivity(intent);
+                }
+            });
+            confirmo_rder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDatabaseRef.child(Items.get(i).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Items.remove(Items.get(i));
+                            custom.notifyDataSetChanged();
+                        }
+                    });
                 }
             });
             return view1;

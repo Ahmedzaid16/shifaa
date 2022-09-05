@@ -6,14 +6,12 @@
     android:orientation="vertical"
     tools:context=".HomeManger"
     android:background="@color/white">
-
-
-    <ViewFlipper
-        android:id="@+id/fliper"
-        style="@style/customstyle"
-        android:layout_width="match_parent"
-        android:layout_height="235dp"
-        android:layout_gravity="center" />
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:gravity="center"
@@ -50,5 +48,13 @@
             style="@style/customstyle"
             android:src="@drawable/asnan"/>
     </LinearLayout>
-
+    <Button
+        android:id="@+id/fliper"
+        android:text="Orders"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"/>
 </LinearLayout>

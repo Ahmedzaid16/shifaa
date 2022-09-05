@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     public static String[] s3_c = new String[50];
     TextView signup;
     Button login;
-    EditText user;
     EditText passw;
     EditText email_login;
     ImageView google;
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user = findViewById(R.id.edtUsername);
         passw = findViewById(R.id.edtPassword);
         email_login = findViewById(R.id.Email_LogIn);
         signup = findViewById(R.id.infoTxtCredits);
@@ -69,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String mail_signIn = email_login.getText().toString();
+                String pass_singIn = passw.getText().toString();
+                if(mail_signIn.equals("Ahmed")&& pass_singIn.equals("111")){
+                    Intent  intent = new Intent(MainActivity.this,HomeManger.class);
+                    startActivity(intent);
+                }
+                else
                 checkForm();
             }
         });
@@ -93,18 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void checkForm() {
-        String username_signIn = user.getText().toString();
         String mail_signIn = email_login.getText().toString();
         String pass_singIn = passw.getText().toString();
-
-        if(username_signIn.equals("Ahmed")){
-            Intent  intent = new Intent(MainActivity.this,HomeManger.class);
-            startActivity(intent);
-
-        }
-        else if (username_signIn.isEmpty() || username_signIn.length() < 7) {
-            Toast.makeText(MainActivity.this, "Your username is not valid!", Toast.LENGTH_SHORT).show();
-        } else if (mail_signIn.isEmpty() || !mail_signIn.contains("@")) {
+        if (mail_signIn.isEmpty() || !mail_signIn.contains("@")) {
             Toast.makeText(MainActivity.this, "Email is not valid!", Toast.LENGTH_SHORT).show();
         } else if (pass_singIn.isEmpty() || pass_singIn.length() < 7) {
             Toast.makeText(MainActivity.this, "Password must be 7 charcter", Toast.LENGTH_SHORT).show();
